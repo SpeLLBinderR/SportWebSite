@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+ <h1>Your lead courses</h1>
+
+    {% if courses_list %}
+    <ul>
+
+      {% for cour in courses_list %}
+      <li class="{% if cour.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'coursePage' cour.course.pk %}">{{cour.course.title}}</a> ({{ cour.length }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no courses that you lead.</p>
+    {% endif %}
+
+{% endblock %}

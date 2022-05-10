@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Главная страница</h1>
+
+    {% if tasks %}
+        <p align="right"> <i class="far fa-eye"></i> <strong>{{num_visit}}</strong> <br>
+            <i class="fas fa-list"></i> <strong>{{ amount }}</strong>
+        </p>
+        {% for element in tasks %}
+
+            <div class = "alert alert-warning mt-2">
+                <h3>{{ element.title }}</h3>
+                <p> {{ element.task }}</p>
+                <!-- <td><a href="tdelete/{{element.title}}">delete</a></td> -->
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Записи отсутствуют</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Удаление записи
+{% endblock %}
+
+{% block content %}
+    {% if perms.main.Can_delete_task %}
+        <h1> <font face="Times New Roman"><strong>Удаление записи</strong></font></h1><br>
+        <form method="post" >
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+          <input type="submit" value="Confirm">
+        </form>
+
+    {% else %}
+         <h1 align="center"> <font face="Times New Roman"><strong>У вас нет доступа к удалению записи
+         </strong></font></h1><br>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors%}
+    <p align="center">Ошибка. Логин и пароль не существуют. Попробуйте снова</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Ваш аккаунт не разрешает доступ к данной странице, для продолжения войдите в аккаунт.</p>
+  {% else %}
+    <p class="lead" align="center" >Зарегистрируйтесь, что бы увидеть содержание страниц</p>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<br> <br>
+<tr>
+  <td>{{ form.username.label_tag }}</td>
+  <td align="center">{{ form.username }}</td>
+</tr>
+
+<tr>
+  <td class="bold">{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</tr>
+</table>
+  <br>
+<input type="submit" value="Войти" class="bold" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}

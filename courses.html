@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1 align="center" class="bold">Доступные курсы</h1>
+
+    {% if courses %}
+        <p align="right"> <i class="fas fa-list"></i> <strong>{{ amount }}</strong>
+        {% for element in courses %}
+            <div class = "alert alert-warning mt-2">
+                <h3>{{ element.title }}</h3>
+                <h5> {{ element.task }}</h5>
+                <hr size="4"  align="center">
+                <p align="right" class="bold" > Количество сброшеных калорий ~ {{ element.calories }} </p>
+
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Записи отсутствуют</p>
+    {% endif %}
+
+{% endblock %}
+

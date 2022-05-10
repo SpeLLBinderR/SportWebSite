@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Страница про нас
+{% endblock %}
+
+{% block content %}
+<style>
+mark {
+  background-color: lime;
+  color: black;
+}
+</style>
+
+<body class="text-center">
+
+<div class="cover-container flex-column">
+  <main >
+      <h1><font face="Verdana"> Страница про нас </font></h1> <br>
+      <p class="lead">Сайт выполнен с помощью интегрируемой стреды разработки <strong> <mark>PyCharm</mark></strong><br> на языке
+          програмироания <strong><mark background-color="lawngreen">Python</mark> </strong>. <br>
+          Так же был использован язык программирования <strong><mark background-color="skyblue">HTML</mark> </strong>. <br>
+          На шаблоне свободного фреймворка <strong><mark> Django </mark> </strong> </p>
+      <br>
+      <hr size="4"  align="center">
+      <br><br><br>
+      <p>
+          Создал в образовательных целях студент  БНТУ гр 10701319 <br><strong> Гавдурович Дмитрий </strong> <br> <br>
+          <u>Минск 2021</u>
+      </p>
+  </main>
+
+</div>
+
+</body>
+
+
+
+{% endblock %}
